@@ -1,0 +1,28 @@
+{
+  "name": "mrnstudyproject",
+  "version": "1.0.0",
+  "description": "my rn study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvjie0519/MRNStudyProject.git"
+  },
+  "keywords": [
+    "react",
+    "native"
+  ],
+  "author": "lvjie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lvjie0519/MRNStudyProject/issues"
+  },
+  "homepage": "https://github.com/lvjie0519/MRNStudyProject#readme",
+  "dependencies": {
+    "react": "16.6.3",
+    "react-native": "^0.57.8"
+  }
+}
