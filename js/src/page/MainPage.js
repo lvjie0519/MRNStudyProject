@@ -1,9 +1,7 @@
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
-import App from "./js/src/App"
-
-class HelloWorld extends React.Component {
+export default class MainPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -23,5 +21,3 @@ var styles = StyleSheet.create({
     margin: 10,
   },
 });
-
-AppRegistry.registerComponent('MyReactNativeApp', () => App);
