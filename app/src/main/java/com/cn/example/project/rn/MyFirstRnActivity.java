@@ -32,6 +32,7 @@ public class MyFirstRnActivity extends Activity implements DefaultHardwareBackBt
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
+                .addPackage(new ReactNativeSdkPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
