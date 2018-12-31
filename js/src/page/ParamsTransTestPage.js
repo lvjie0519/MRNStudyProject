@@ -10,6 +10,8 @@ import {
 import {RNLog} from '../native/android/index'
 import ParamsTrans from '../sdk/ParamsTrans'
 
+import PageHeader from './widget/PageHeader'
+
 export default class MainPage extends React.Component {
 
     constructor(props){
@@ -48,7 +50,10 @@ export default class MainPage extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
+                <PageHeader
+                    leftOnclick={(e)=>{this.props.navigation.goBack(null)}}
+                    headerCenterText={"参数相关"}
+                />
                 <View style={styles.btnStyle}>
                     <Button
                         title='params Callback test'
