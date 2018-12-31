@@ -44,4 +44,25 @@ export default {
         RNParams.sendParamsByEvent(a, b);
     },
 
+    /**
+     * 参数类型传递测试
+     * @param  {bool} isAdd
+     * @param  {int} a
+     * @param {double} b
+     * @param callback
+     */
+    paramesBoolAndNumber(isAdd, a, b, callback){
+        RNParams.paramesBoolAndNumber(isAdd, a, b, callback);
+    },
+
+    /**
+     *
+     * @param map
+     * @param array
+     * @param callback
+     */
+    paramesMapAndArray(map, array, callback){
+        RNParams.paramesMapAndArray(map, array, callback);
+    }
+
 }

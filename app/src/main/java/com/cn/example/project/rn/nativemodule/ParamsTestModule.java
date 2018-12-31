@@ -7,6 +7,12 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMapKeySetIterator;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeArray;
+import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import java.util.HashMap;
@@ -83,5 +89,57 @@ public class ParamsTestModule extends ReactContextBaseJavaModule {
         getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("eventSendParams", data);
     }
 
+    /**
+     * 测试参数类型正常传递
+     * Bool -> boolean
+     * Number -> int
+     * Number -> double
+     * Float -> Number
+     * String -> String
+     * Callback -> function
+     * @param isAdd
+     * @param a
+     * @param b
+     */
+    @ReactMethod
+    public void paramesBoolAndNumber(boolean isAdd, int a, double b, Callback callback){
+        Log.i("lvjie", "isAdd: "+isAdd+"  a: "+a+"   b: "+b);
+        callback.invoke(isAdd, a, b);
+    }
+
+    /**
+     * ReadableMap -> Object
+     * ReadableArray -> Array
+     * @param map
+     * @param array
+     */
+    @ReactMethod
+    public void paramesMapAndArray(ReadableMap map, ReadableArray array, Callback callback){
+        ReadableMapKeySetIterator iterator = map.keySetIterator();
+        while (iterator.hasNextKey()){
+            /**
+             * 这种value的转换，非常小心，类型不同就会出现转换失败
+             */
+            String key = iterator.nextKey();
+            Object value = map.getString(key);
+            Log.i("lvjie", "key="+key+"  value="+value);
+        }
+        Log.i("lvjie", "==========================");
+        int len = array.size();
+        for(int i=0; i<len; i++){
+            Log.i("lvjie", "array["+i+"]="+array.getString(i));
+        }
+
+        WritableNativeMap writableNativeMap = new WritableNativeMap();
+        writableNativeMap.putString("key-1", "value-1");
+        writableNativeMap.putString("key-2", "value-2");
+
+        WritableNativeArray writableNativeArray = new WritableNativeArray();
+        writableNativeArray.pushString("array-1");
+        writableNativeArray.pushString("array-2");
+
+        callback.invoke(writableNativeMap, writableNativeArray);
+
+    }
 
 }
