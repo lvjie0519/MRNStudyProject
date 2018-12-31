@@ -1,6 +1,7 @@
 package com.cn.example.project.rn;
 
 import com.cn.example.project.rn.nativemodule.LogModule;
+import com.cn.example.project.rn.nativemodule.ParamsTestModule;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -16,6 +17,7 @@ public class ReactNativeSdkPackage implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
 
         modules.add(new LogModule(reactContext));
+        modules.add(new ParamsTestModule(reactContext));
 
         return modules;
     }
