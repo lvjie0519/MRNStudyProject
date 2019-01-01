@@ -4,6 +4,7 @@ import {
 
 import MainPage from './page/MainPage'
 import ParamsTransTestPage from './page/ParamsTransTestPage'
+import PropsAndStatePage from './page/PropsAndStatePage'
 
 const PageManage = StackNavigator({
     MainPage: {
@@ -15,6 +16,13 @@ const PageManage = StackNavigator({
     },
     ParamsTransTestPage: {
         screen: ParamsTransTestPage,
+        navigationOptions:{
+            header:null,
+        },
+        mode:'card',
+    },
+    PropsAndStatePage: {
+        screen: PropsAndStatePage,
         navigationOptions:{
             header:null,
         },
