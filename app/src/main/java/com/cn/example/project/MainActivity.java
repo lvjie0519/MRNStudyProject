@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     // js 调用 java  需要返回值
 
     public void testBtn(View view){
+        is24HourFormat();
+    }
+
+    private void is24HourFormat(){
         boolean is24 = DateFormat.is24HourFormat(this);
         Log.i("lvjie", "is24="+is24);
     }
