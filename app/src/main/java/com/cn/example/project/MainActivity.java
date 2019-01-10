@@ -1,6 +1,9 @@
 package com.cn.example.project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -25,12 +28,31 @@ public class MainActivity extends AppCompatActivity {
     // js 调用 java  需要返回值
 
     public void testBtn(View view){
-        is24HourFormat();
+//        is24HourFormat();
+
+        getWifiInfo();
     }
 
     private void is24HourFormat(){
         boolean is24 = DateFormat.is24HourFormat(this);
         Log.i("lvjie", "is24="+is24);
+    }
+
+    private void getWifiInfo(){
+
+        //获取wifi服务
+        WifiManager mWifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if(mWifiManager.isWifiEnabled()){
+            Log.i("lvjie", "wifi is enabled");
+        }
+
+        WifiInfo mWifiInfo = mWifiManager.getConnectionInfo();
+        if(mWifiInfo != null){
+            String mac = mWifiInfo.getMacAddress();
+        }else{
+            Log.i("lvjie", "wifi info is null...");
+        }
+
     }
 
 }
