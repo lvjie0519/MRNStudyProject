@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
+import com.cn.example.project.rn.dialog.MessageDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public void testBtn(View view){
 //        is24HourFormat();
 
-        getWifiInfo();
+//        getWifiInfo();
+        showDialog();
     }
 
     private void is24HourFormat(){
@@ -59,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
             Log.i("lvjie", "wifi info is null...");
         }
 
+    }
+
+
+    private void showDialog(){
+        MessageDialog dialog = new MessageDialog();
+        dialog.show(getSupportFragmentManager(), "messagedialog");
     }
 
 }
