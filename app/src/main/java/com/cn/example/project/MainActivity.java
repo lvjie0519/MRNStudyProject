@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
+import com.cn.example.project.rn.MySecondRnActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goRnPage(View view){
         Intent intent = new Intent(this, MyFirstRnActivity.class);
+        startActivity(intent);
+    }
+
+    public void goSecondRnPage(View view){
+        Intent intent = new Intent(this, MySecondRnActivity.class);
         startActivity(intent);
     }
 

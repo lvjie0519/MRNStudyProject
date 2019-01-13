@@ -16,6 +16,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="进入第二种个RN界面"
+        android:onClick="goSecondRnPage"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="测试"
         android:onClick="testBtn"/>
 
