@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showDialog(){
-        MessageDialog dialog = new MessageDialog();
-        dialog.show(getSupportFragmentManager(), "messagedialog");
+        MessageDialog dialog = new MessageDialog(this);
+        dialog.show();
     }
 
 }

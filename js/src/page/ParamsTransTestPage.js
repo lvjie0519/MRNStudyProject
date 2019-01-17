@@ -12,7 +12,7 @@ import ParamsTrans from '../sdk/ParamsTrans'
 
 import PageHeader from './widget/PageHeader'
 
-export default class MainPage extends React.Component {
+export default class ParamsTransTestPage extends React.Component {
 
     constructor(props){
         super(props);

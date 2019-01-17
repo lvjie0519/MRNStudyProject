@@ -5,6 +5,7 @@ import {
 import MainPage from './page/MainPage'
 import ParamsTransTestPage from './page/ParamsTransTestPage'
 import PropsAndStatePage from './page/PropsAndStatePage'
+import DialogTestPage from './page/DialogTestPage'
 
 const PageManage = StackNavigator({
     MainPage: {
@@ -23,6 +24,13 @@ const PageManage = StackNavigator({
     },
     PropsAndStatePage: {
         screen: PropsAndStatePage,
+        navigationOptions:{
+            header:null,
+        },
+        mode:'card',
+    },
+    DialogTestPage: {
+        screen: DialogTestPage,
         navigationOptions:{
             header:null,
         },

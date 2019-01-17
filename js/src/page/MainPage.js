@@ -11,6 +11,7 @@ export default class MainPage extends React.Component {
         RNLog.i('MainPage', 'constructor()...');
         this.goParamsTransTestPage = this.goParamsTransTestPage.bind(this);
         this.goPropsAndStatePage = this.goPropsAndStatePage.bind(this);
+        this.goDialogTestPage = this.goDialogTestPage.bind(this);
     }
 
     render() {
@@ -30,6 +31,12 @@ export default class MainPage extends React.Component {
                         onPress={this.goPropsAndStatePage} />
                 </View>
 
+                <View style={styles.btnStyle1}>
+                    <Button
+                        title="goDialogTestPage"
+                        onPress={this.goDialogTestPage} />
+                </View>
+
             </View>
         );
     }
@@ -44,6 +51,12 @@ export default class MainPage extends React.Component {
     goPropsAndStatePage(){
         console.log("goPropsAndStatePage...");
         this.props.navigation.navigate('PropsAndStatePage');
+    }
+
+    // DialogTestPage测试页面
+    goDialogTestPage(){
+        console.log("goDialogTestPage...");
+        this.props.navigation.navigate('DialogTestPage');
     }
 
 }

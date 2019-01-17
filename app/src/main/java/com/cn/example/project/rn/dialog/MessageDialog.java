@@ -1,66 +1,58 @@
 package com.cn.example.project.rn.dialog;
 
 import android.app.Dialog;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.cn.example.project.R;
 
-public class MessageDialog extends DialogFragment {
+public class MessageDialog extends Dialog{
 
     private View mRootView;
+    private TextView mTvTtile;
+    private TextView mTvMessage;
     private Button mBtnCancel;
     private Button mBtnOk;
 
     private DialogOnClick mDialogOnClick;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogStyle);
+    public MessageDialog(Context context) {
+        this(context, R.style.DialogStyle);
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public MessageDialog(Context context, int themeResId) {
+        super(context, themeResId);
 
-        mRootView = inflater.inflate(R.layout.dialog_message, container, false);
         initDialog();
         initView();
-
-        return mRootView;
     }
 
     private void initDialog(){
 
-        Dialog dialog = getDialog();
-        if(dialog != null){
-            Window dialogWindow = dialog.getWindow();
-            dialogWindow.setGravity(Gravity.BOTTOM);// 显示在底部
-            dialogWindow.setWindowAnimations(R.style.DialogAnimation); // 添加动画
+        Window dialogWindow = this.getWindow();
+        dialogWindow.setGravity(Gravity.BOTTOM);// 显示在底部
+        dialogWindow.setWindowAnimations(R.style.DialogAnimation); // 添加动画
+        this.mRootView = getLayoutInflater().inflate(R.layout.dialog_message, null);
+        this.setContentView(this.mRootView);
 
-            dialog.setCancelable(true);
-            dialog.setCanceledOnTouchOutside(true);       // 点击其他区域，dialog消失
+        this.setCancelable(true);
+        this.setCanceledOnTouchOutside(true);
 
-//            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-//            lp.width = this.mScreenWidth; //设置宽度
-//            this.getWindow().setAttributes(lp);
-        }
-
-
+        WindowManager.LayoutParams lp = this.getWindow().getAttributes();
+        lp.width = (int) (this.getWindow().getWindowManager().getDefaultDisplay().getWidth()*0.8);
+        this.getWindow().setAttributes(lp);
     }
 
     private void initView(){
+        mTvTtile = mRootView.findViewById(R.id.tv_title);
+        mTvMessage = mRootView.findViewById(R.id.tv_message);
         mBtnCancel = mRootView.findViewById(R.id.btn_cancel);
         mBtnOk = mRootView.findViewById(R.id.btn_ok);
 
@@ -83,6 +75,27 @@ public class MessageDialog extends DialogFragment {
                 dismiss();
             }
         });
+
+        this.setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                if(mDialogOnClick != null){
+                    mDialogOnClick.onDialogDismiss();
+                }
+            }
+        });
+    }
+
+    public void setTitle(String title){
+        if(!TextUtils.isEmpty(title)){
+            mTvTtile.setText(title);
+        }
+    }
+
+    public void setMessage(String msg){
+        if(!TextUtils.isEmpty(msg)){
+            mTvMessage.setText(msg);
+        }
     }
 
     public void setDialogOnClick(DialogOnClick mDialogOnClick) {
@@ -92,6 +105,7 @@ public class MessageDialog extends DialogFragment {
     public interface DialogOnClick{
         void onCancelClick();
         void onConfirmClick();
+        void onDialogDismiss();
     }
 
 

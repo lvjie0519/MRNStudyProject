@@ -2,6 +2,7 @@ package com.cn.example.project.rn;
 
 import com.cn.example.project.rn.nativemodule.LogModule;
 import com.cn.example.project.rn.nativemodule.ParamsTestModule;
+import com.cn.example.project.rn.viewmanager.MessageDialogManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -27,6 +28,7 @@ public class ReactNativeSdkPackage implements ReactPackage {
 
         // 注意此处不能返回null
         List<ViewManager> viewManagers = new ArrayList<>();
+        viewManagers.add(new MessageDialogManager());
 
         return viewManagers;
     }

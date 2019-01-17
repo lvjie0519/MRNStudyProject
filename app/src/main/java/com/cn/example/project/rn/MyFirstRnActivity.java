@@ -1,6 +1,7 @@
 package com.cn.example.project.rn;
 
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,7 +14,7 @@ import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
-public class MyFirstRnActivity extends Activity implements DefaultHardwareBackBtnHandler {
+public class MyFirstRnActivity extends FragmentActivity implements DefaultHardwareBackBtnHandler {
 
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
