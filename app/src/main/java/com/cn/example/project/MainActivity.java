@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
@@ -16,10 +17,26 @@ import com.cn.example.project.rn.dialog.MessageDialog;
 
 public class MainActivity extends AppCompatActivity {
 
+    private View mRootView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initView();
+    }
+
+    private void initView(){
+
+        mRootView = findViewById(R.id.layout_root_view);
+
+        mRootView.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() {
+            @Override
+            public void onDraw() {
+                Log.i("lvjie", "onDraw...");
+            }
+        });
     }
 
     public void goRnPage(View view){
