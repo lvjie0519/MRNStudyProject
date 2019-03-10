@@ -2,6 +2,7 @@ package com.cn.example.project.rn;
 
 import com.cn.example.project.rn.nativemodule.LogModule;
 import com.cn.example.project.rn.nativemodule.ParamsTestModule;
+import com.cn.example.project.rn.nativemodule.RCTFileModule;
 import com.cn.example.project.rn.viewmanager.MessageDialogManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -19,6 +20,7 @@ public class ReactNativeSdkPackage implements ReactPackage {
 
         modules.add(new LogModule(reactContext));
         modules.add(new ParamsTestModule(reactContext));
+        modules.add(new RCTFileModule(reactContext));
 
         return modules;
     }

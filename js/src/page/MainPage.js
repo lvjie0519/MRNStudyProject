@@ -1,7 +1,8 @@
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
+import {AppRegistry, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions} from 'react-native';
 
 import {RNLog} from '../native/android/index'
+import FileTestPage from "./FileTestPage";
 
 export default class MainPage extends React.Component {
 
@@ -12,6 +13,7 @@ export default class MainPage extends React.Component {
         this.goParamsTransTestPage = this.goParamsTransTestPage.bind(this);
         this.goPropsAndStatePage = this.goPropsAndStatePage.bind(this);
         this.goDialogTestPage = this.goDialogTestPage.bind(this);
+        this.goFileTestPage = this.goFileTestPage.bind(this);
     }
 
     render() {
@@ -37,6 +39,12 @@ export default class MainPage extends React.Component {
                         onPress={this.goDialogTestPage} />
                 </View>
 
+                <View style={styles.btnStyle1}>
+                    <Button
+                        title="goFileTestPage"
+                        onPress={this.goFileTestPage} />
+                </View>
+
             </View>
         );
     }
@@ -57,6 +65,12 @@ export default class MainPage extends React.Component {
     goDialogTestPage(){
         console.log("goDialogTestPage...");
         this.props.navigation.navigate('DialogTestPage');
+    }
+
+    // FileTestPage
+    goFileTestPage(){
+        console.log("FileTestPage...");
+        this.props.navigation.navigate('FileTestPage');
     }
 
 }

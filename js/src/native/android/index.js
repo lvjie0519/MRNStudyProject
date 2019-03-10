@@ -3,5 +3,5 @@
  */
 import {NativeModules} from 'react-native'
 
-export const {RNLog, RNParams} = NativeModules;
+export const {RNLog, RNParams, RNFile} = NativeModules;
 

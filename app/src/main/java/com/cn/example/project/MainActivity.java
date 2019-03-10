@@ -2,6 +2,9 @@ package com.cn.example.project;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +13,19 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
 import com.cn.example.project.rn.dialog.MessageDialog;
+import com.cn.example.project.rn.screenshot.ScreenshotUtils;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,8 +67,28 @@ public class MainActivity extends AppCompatActivity {
 //        is24HourFormat();
 
 //        getWifiInfo();
-        showDialog();
+//        showDialog();
+
+        ScrollView scrollView = findViewById(R.id.sv_conent);
+        Bitmap bitmap = ScreenshotUtils.shotScrollView(scrollView);
+
+        String fileName = new Date().getTime() +".png";
+        String filePath = getExternalCacheDir().getAbsolutePath()+File.separator+"mypic"+File.separator+fileName;
+        Log.i("lvjie", filePath);
+        try {
+            boolean result = bitmap.compress(Bitmap.CompressFormat.JPEG, 60, new BufferedOutputStream(new FileOutputStream(filePath)));
+            Log.i("lvjie", "compress is "+result);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        ImageView imageView = findViewById(R.id.iv_img);
+        Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
+        imageView.setImageBitmap(bitmap1);
+
     }
+
+
 
     private void is24HourFormat(){
         boolean is24 = DateFormat.is24HourFormat(this);
