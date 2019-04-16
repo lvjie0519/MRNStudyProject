@@ -4,6 +4,8 @@ import {AppRegistry, StyleSheet, Text, View, Button, TouchableOpacity, Dimension
 import {RNLog} from '../native/android/index'
 import FileTestPage from "./FileTestPage";
 
+import { NordicDFU, DFUEmitter } from "react-native-nordic-dfu";
+
 export default class MainPage extends React.Component {
 
     constructor(props){
@@ -52,7 +54,15 @@ export default class MainPage extends React.Component {
     // 参数传递测试页面
     goParamsTransTestPage(){
         console.log("goParamsTransTestPage...");
-        this.props.navigation.navigate('ParamsTransTestPage');
+        // this.props.navigation.navigate('ParamsTransTestPage');
+
+        NordicDFU.startDFU({
+            deviceAddress: "C3:53:C0:39:2F:99",
+            name: "Pilloxa Pillbox",
+            filePath: "/data/user/0/com.nordicdfuexample/files/RNFetchBlobTmp4of.zip"
+        }).then(res => console.log("Transfer done:", res)).catch((error)=>{
+            console.log("error", error)
+        });
     }
 
     // PropsAndStatePage测试页面
