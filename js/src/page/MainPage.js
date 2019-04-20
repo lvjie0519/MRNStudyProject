@@ -37,13 +37,13 @@ export default class MainPage extends React.Component {
 
                 <View style={styles.btnStyle1}>
                     <Button
-                        title="goDialogTestPage"
+                        title="自定义对话框测试"
                         onPress={this.goDialogTestPage} />
                 </View>
 
                 <View style={styles.btnStyle1}>
                     <Button
-                        title="goFileTestPage"
+                        title="屏幕截屏测试"
                         onPress={this.goFileTestPage} />
                 </View>
 
