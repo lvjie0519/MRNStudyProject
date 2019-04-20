@@ -1,14 +1,20 @@
 
 package com.pilloxa.dfu;
 
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter;
+
+import java.util.Iterator;
+import java.util.List;
+
 import no.nordicsemi.android.dfu.*;
 
 public class RNNordicDfuModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
@@ -39,7 +45,14 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
         }
         starter.setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true);
         starter.setZip(filePath);
-        final DfuServiceController controller = starter.start(this.reactContext, DfuService.class);
+        Class serviceClass = getDfuServiceClass(getCurrentActivity());
+        if(serviceClass != null){
+            Log.i("lvjie", "dfu, will start a service, "+serviceClass.getName());
+            final DfuServiceController controller = starter.start(this.reactContext, DfuService.class);
+        }else{
+            Log.e("lvjie", "dfu, service is null...");
+        }
+
     }
 
     @Override
@@ -77,6 +90,34 @@ public class RNNordicDfuModule extends ReactContextBaseJavaModule implements Lif
     public void onHostDestroy() {
         DfuServiceListenerHelper.unregisterProgressListener(this.reactContext, mDfuProgressListener);
 
+    }
+
+    // 通过当前进程名获取DfuServiceClass
+    private Class getDfuServiceClass(Context context){
+        int myPid = android.os.Process.myPid();
+        String processName = null;
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List list = activityManager.getRunningAppProcesses();
+        int size = list.size();
+        for(int i=0; i<size; i++){
+            ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo) list.get(i);
+            if(info.pid == myPid){
+                processName = info.processName;
+                break;
+            }
+        }
+
+        Log.i("lvjie", "processName: "+processName);
+
+        if(TextUtils.isEmpty(processName)){
+           return null;
+        }
+
+        if(processName.endsWith(":rnplugin0")){
+            return DfuService.class;
+        }
+
+        return null;
     }
 
 

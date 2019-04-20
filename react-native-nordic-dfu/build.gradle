@@ -29,6 +29,13 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    repositories {
+        // 告诉gradle，编译中依赖的jar包或arr存储在dirs指定的目录
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 repositories {
@@ -38,6 +45,11 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'no.nordicsemi.android:dfu:1.8.0'
+//    implementation 'no.nordicsemi.android:dfu:1.8.0'
+
+    // aar引入方式
+    compile(name: 'dfu-release', ext: 'aar')
+    implementation 'com.android.support:support-core-utils:28.0.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
   

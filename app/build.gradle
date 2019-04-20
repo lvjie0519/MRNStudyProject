@@ -22,9 +22,15 @@ android {
     }
 }
 
+//repositories {
+//    flatDir {
+//        dirs 'libs'
+//    }
+//}
+
 repositories {
     flatDir {
-        dirs 'libs'
+        dirs 'libs', project(':react-native-nordic-dfu').file('libs')
     }
 }
 
