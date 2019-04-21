@@ -7,6 +7,7 @@ import ParamsTransTestPage from './page/ParamsTransTestPage'
 import PropsAndStatePage from './page/PropsAndStatePage'
 import DialogTestPage from './page/DialogTestPage'
 import FileTestPage from './page/FileTestPage'
+import SelfDefineViewTestPage from './page/SelfDefineViewTestPage'
 
 const PageManage = StackNavigator({
     MainPage: {
@@ -39,6 +40,13 @@ const PageManage = StackNavigator({
     },
     FileTestPage: {
         screen: FileTestPage,
+        navigationOptions:{
+            header:null,
+        },
+        mode:'card',
+    },
+    SelfDefineViewTestPage: {
+        screen: SelfDefineViewTestPage,
         navigationOptions:{
             header:null,
         },

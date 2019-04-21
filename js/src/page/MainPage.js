@@ -16,6 +16,7 @@ export default class MainPage extends React.Component {
         this.goPropsAndStatePage = this.goPropsAndStatePage.bind(this);
         this.goDialogTestPage = this.goDialogTestPage.bind(this);
         this.goFileTestPage = this.goFileTestPage.bind(this);
+        this.goSelfDefineViewTestPage = this.goSelfDefineViewTestPage.bind(this);
     }
 
     render() {
@@ -45,6 +46,11 @@ export default class MainPage extends React.Component {
                     <Button
                         title="屏幕截屏测试"
                         onPress={this.goFileTestPage} />
+                </View>
+                <View style={styles.btnStyle1}>
+                    <Button
+                        title="自定义View测试"
+                        onPress={this.goSelfDefineViewTestPage} />
                 </View>
 
             </View>
@@ -81,6 +87,11 @@ export default class MainPage extends React.Component {
     goFileTestPage(){
         console.log("FileTestPage...");
         this.props.navigation.navigate('FileTestPage');
+    }
+
+    goSelfDefineViewTestPage(){
+        console.log("goSelfDefineViewTestPage...");
+        this.props.navigation.navigate('SelfDefineViewTestPage');
     }
 
 }

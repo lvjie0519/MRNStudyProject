@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 
 import com.cn.example.project.BuildConfig;
 import com.cn.example.project.R;
+import com.cn.example.project.rn.fixbug.FixBugMainReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
@@ -33,7 +34,7 @@ public class MyFirstRnActivity extends FragmentActivity implements DefaultHardwa
                 .setApplication(getApplication())
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(new MainReactPackage())
+                .addPackage(new FixBugMainReactPackage())
                 .addPackage(new ReactNativeSdkPackage())
                 .addPackage(new RNNordicDfuPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
