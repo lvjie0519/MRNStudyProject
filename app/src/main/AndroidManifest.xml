@@ -5,9 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -26,10 +30,10 @@
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
         <activity
             android:name=".rn.MyFirstRnActivity"
-            android:process=":rnplugin0"
-            />
+            android:process=":rnplugin0" />
         <activity android:name=".rn.MySecondRnActivity" />
-        <activity android:name=".BluetoothTestActivity"></activity>
+        <activity android:name=".BluetoothTestActivity" />
+        <activity android:name=".rn.android.TestAndroidMainActivity"></activity>
     </application>
 
 </manifest>

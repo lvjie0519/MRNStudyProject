@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
+import com.cn.example.project.rn.android.TestAndroidMainActivity;
 import com.cn.example.project.rn.dialog.MessageDialog;
 import com.cn.example.project.rn.screenshot.ScreenshotUtils;
 
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap1 = BitmapFactory.decodeFile(filePath);
         imageView.setImageBitmap(bitmap1);
 
+    }
+
+    public void goTestAndroidMainPage(View view){
+        TestAndroidMainActivity.startActivity(this);
     }
 
 

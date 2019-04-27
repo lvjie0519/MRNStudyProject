@@ -11,6 +11,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="进入原生测试页面"
+        android:onClick="goTestAndroidMainPage"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="进入一个RN界面"
         android:onClick="goRnPage"/>
 
