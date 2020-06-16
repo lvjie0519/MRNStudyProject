@@ -22,15 +22,9 @@ android {
     }
 }
 
-//repositories {
-//    flatDir {
-//        dirs 'libs'
-//    }
-//}
-
 repositories {
     flatDir {
-        dirs 'libs', project(':react-native-nordic-dfu').file('libs')
+        dirs 'libs'
     }
 }
 
@@ -43,8 +37,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.facebook.react:react-native:+'
     // From node_modules
-//    implementation(name: 'react-native-nordic-dfu', ext:'aar')
-//    implementation 'no.nordicsemi.android:dfu:1.8.0'
-    implementation project(':react-native-nordic-dfu')
 
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
@@ -79,13 +80,16 @@ public class TestAndroidMainActivity extends AppCompatActivity {
 
         int length = bytes.length;
         System.out.println("file length is "+length);
-        for(int i=0; i<length; i++){
-            if(i%10==0){
-                System.out.println(bytes[i]+"    "+i);
-            }else{
-                System.out.print(bytes[i]+"  ");
-            }
-        }
+//        for(int i=0; i<length; i++){
+//            if(i%10==0){
+//                System.out.println(bytes[i]+"    "+i);
+//            }else{
+//                System.out.print(bytes[i]+"  ");
+//            }
+//        }
+
+        String base64 = Base64.encodeToString(bytes, Base64.DEFAULT);
+        Log.i("lvjie", base64);
     }
 
     public static void downloadFile(String url, HashMap<String, Object> header, String file, int connectionTimeout, int readTimeout) {

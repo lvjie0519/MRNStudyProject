@@ -1,2 +1,1 @@
-include ':app', ':MyJavaModule'
-include ':react-native-nordic-dfu'
+include ':app'
