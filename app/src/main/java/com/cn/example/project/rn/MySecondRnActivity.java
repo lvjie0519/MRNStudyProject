@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.cn.example.project.BuildConfig;
 import com.cn.example.project.R;
+import com.cn.example.project.rn.nativemodule.react_native_video.react.ReactVideoPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
@@ -35,6 +36,7 @@ public class MySecondRnActivity extends Activity implements DefaultHardwareBackB
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
                 .addPackage(new ReactNativeSdkPackage())
+                .addPackage(new ReactVideoPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
