@@ -9,6 +9,7 @@ import DialogTestPage from './page/DialogTestPage'
 import FileTestPage from './page/FileTestPage'
 import SelfDefineViewTestPage from './page/SelfDefineViewTestPage'
 import WebviewTestPage from './page/WebviewTestPage'
+import ReactNativeVideoDemo from "./page/ReactNativeVideoDemo";
 
 const PageManage = StackNavigator({
     MainPage: {
@@ -55,6 +56,13 @@ const PageManage = StackNavigator({
     },
     WebviewTestPage: {
         screen: WebviewTestPage,
+        navigationOptions:{
+            header:null,
+        },
+        mode:'card',
+    },
+    ReactNativeVideoDemo: {
+        screen: ReactNativeVideoDemo,
         navigationOptions:{
             header:null,
         },

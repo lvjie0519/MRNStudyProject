@@ -57,6 +57,13 @@ export default class MainPage extends React.Component {
                           this.props.navigation.navigate('WebviewTestPage');
                       }} />
                 </View>
+                <View style={styles.btnStyle1}>
+                    <Button
+                      title="react-native-video 测试"
+                      onPress={()=>{
+                          this.props.navigation.navigate('ReactNativeVideoDemo');
+                      }} />
+                </View>
 
             </View>
         );
