@@ -24,4 +24,5 @@ var styles = StyleSheet.create({
   },
 });
 
+console.log("AppRegistry.registerComponent...")
 AppRegistry.registerComponent('MyReactNativeApp', () => App);

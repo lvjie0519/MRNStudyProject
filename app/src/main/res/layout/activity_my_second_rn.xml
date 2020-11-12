@@ -6,17 +6,44 @@
     android:orientation="vertical"
     tools:context=".rn.MySecondRnActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试RN加载按钮"
-        android:onClick="onClickRnLoadTestBtn"/>
+        android:orientation="horizontal">
 
-    <com.facebook.react.ReactRootView
-        android:id="@+id/layout_rn_root_view"
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试RN加载按钮"
+            android:onClick="onClickRnLoadTestBtn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="独立加载bundle"
+            android:textAllCaps="false"
+            android:onClick="onClickLoadJsBundle"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RN界面显示"
+            android:textAllCaps="false"
+            android:onClick="onClickShowRnView"
+            />
+
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/layout_react"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.facebook.react.ReactRootView>
+    </FrameLayout>
+
+<!--    <com.facebook.react.ReactRootView-->
+<!--        android:id="@+id/layout_rn_root_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--    </com.facebook.react.ReactRootView>-->
 
 </LinearLayout>
