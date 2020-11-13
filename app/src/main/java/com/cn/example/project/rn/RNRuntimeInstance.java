@@ -13,6 +13,7 @@ import com.facebook.react.bridge.JSBundleLoader;
 import com.facebook.react.bridge.NativeModuleCallExceptionHandler;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.common.LifecycleState;
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
 public class RNRuntimeInstance {
@@ -48,9 +49,9 @@ public class RNRuntimeInstance {
                     .setJSBundleLoader(new JSBundleLoader() {
                         @Override
                         public String loadScript(CatalystInstanceImpl instance) {
-                            Log.i("lvjie", "start loadScript..."+System.currentTimeMillis());
+                            Log.i("lvjie", "RNRuntimeInstance start loadScript..."+System.currentTimeMillis());
                             loadJsBundle(instance);
-                            Log.i("lvjie", "end loadScript..."+System.currentTimeMillis());
+                            Log.i("lvjie", "RNRuntimeInstance end loadScript..."+System.currentTimeMillis());
                             return "loadScript";
                         }
                     })
@@ -65,7 +66,7 @@ public class RNRuntimeInstance {
                         public void handleException(Exception e) {
                             // 捕捉RN异常
                             e.printStackTrace();
-                            Log.i("lvjie", e.toString());
+                            Log.i("lvjie", "RNRuntimeInstance "+e.toString());
                         }
                     })
                     .build();
@@ -73,7 +74,7 @@ public class RNRuntimeInstance {
             mReactInstanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
                 @Override
                 public void onReactContextInitialized(ReactContext context) {
-                    Log.i("lvjie", "onReactContextInitialized...");
+                    Log.i("lvjie", "RNRuntimeInstance onReactContextInitialized...");
                     if(mReactInstanceEventListener != null){
                         mReactInstanceEventListener.onReactContextInitialized(context, mReactRootView);
                     }
@@ -99,6 +100,54 @@ public class RNRuntimeInstance {
 
     public void setReactInstanceEventListener(ReactInstanceEventListener reactInstanceEventListener) {
         this.mReactInstanceEventListener = reactInstanceEventListener;
+    }
+
+    public void onBackPressed(){
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onBackPressed();
+        }
+    }
+
+    public ReactInstanceManager getReactInstanceManager(){
+        return mReactInstanceManager;
+    }
+
+    public void onHostPause(Activity activity){
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostPause(activity);
+        }
+    }
+
+    public void onHostResume(Activity activity, DefaultHardwareBackBtnHandler defaultBackButtonImpl){
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostResume(activity, defaultBackButtonImpl);
+        }
+    }
+
+    public void onDestroy(Activity activity){
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostDestroy(activity);
+        }
+        if (mReactRootView != null) {
+            mReactRootView.unmountReactApplication();
+        }
+    }
+
+
+
+    public void clearReact(){
+
+        mIsInit = false;
+        if(mReactRootView != null){
+            mReactRootView.unmountReactApplication();
+        }
+
+        mReactRootView = null;
+        if(mReactInstanceManager != null){
+            mReactInstanceManager.destroy();
+        }
+        mReactInstanceManager = null;
+        mReactInstanceEventListener = null;
     }
 
     public interface ReactInstanceEventListener{

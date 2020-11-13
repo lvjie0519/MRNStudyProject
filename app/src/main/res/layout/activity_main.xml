@@ -24,48 +24,21 @@
         android:layout_height="wrap_content"
         android:text="进入第二种个RN界面"
         android:onClick="goSecondRnPage"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试"
-        android:onClick="testBtn"/>
-    
-    <ScrollView
-        android:id="@+id/sv_conent"
+        android:text="进入第三种个RN界面"
+        android:onClick="goThirdRnPage"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清空单例缓存"
+            android:onClick="onClickClearReactCache"/>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#999"></LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#a24"></LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#999"></LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#4ab"></LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-    
-    <ImageView
-        android:id="@+id/iv_img"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        android:scaleType="fitXY"/>
 
 </LinearLayout>

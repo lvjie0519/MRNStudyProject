@@ -46,7 +46,7 @@ public class MySecondRnActivity extends Activity implements DefaultHardwareBackB
                     @Override
                     public String loadScript(CatalystInstanceImpl instance) {
                         Log.i("lvjie", "start loadScript..."+System.currentTimeMillis());
-                        JSBundleLoader.createAssetLoader(MySecondRnActivity.this,
+                        JSBundleLoader.createAssetLoader(MySecondRnActivity.this.getApplicationContext(),
                                 "assets://index.android.bundle", false).loadScript(instance);
                         Log.i("lvjie", "end loadScript..."+System.currentTimeMillis());
                         return "loadScript";
@@ -56,7 +56,7 @@ public class MySecondRnActivity extends Activity implements DefaultHardwareBackB
                 .addPackage(new MainReactPackage())
                 .addPackage(new ReactNativeSdkPackage())
                 .addPackage(new ReactVideoPackage())
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .setUseDeveloperSupport(false)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .setNativeModuleCallExceptionHandler(new NativeModuleCallExceptionHandler() {
                     @Override
