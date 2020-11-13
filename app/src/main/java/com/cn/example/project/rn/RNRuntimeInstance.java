@@ -147,6 +147,7 @@ public class RNRuntimeInstance {
         }
         mReactInstanceManager = null;
         mReactInstanceEventListener = null;
+        mApplicationContext = null;
     }
 
     public interface ReactInstanceEventListener{

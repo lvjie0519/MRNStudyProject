@@ -45,6 +45,14 @@ public class MyThirdRnActivity extends Activity  implements DefaultHardwareBackB
     private void initRnView() {
         mLayoutReact = findViewById(R.id.layout_react);
 
+        ReactRootView reactRootView = RNRuntimeInstance.getInstance().getReactRootView();
+        if(reactRootView != null){
+            if (reactRootView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) reactRootView.getParent()).removeView(reactRootView);
+            }
+            mLayoutReact.addView(reactRootView, 0);
+        }
+
         RNRuntimeInstance.getInstance().init(this);
         RNRuntimeInstance.getInstance().setReactInstanceEventListener(new RNRuntimeInstance.ReactInstanceEventListener() {
             @Override
