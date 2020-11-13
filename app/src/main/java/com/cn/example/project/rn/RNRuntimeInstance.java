@@ -45,6 +45,16 @@ public class RNRuntimeInstance {
             mIsInit = true;
             mReactRootView = new ReactRootView(activity.getApplicationContext());
 
+            mReactRootView.setEventListener(new ReactRootView.ReactRootViewEventListener() {
+                @Override
+                public void onAttachedToReactInstance(ReactRootView rootView) {
+                    Log.i("lvjie", "RNRuntimeInstance onAttachedToReactInstance...");
+                    if(mReactInstanceEventListener != null){
+                        mReactInstanceEventListener.onAttachedToReactInstance(mReactRootView);
+                    }
+                }
+            });
+
             mReactInstanceManager = ReactInstanceManager.builder()
                     .setApplication(activity.getApplication())
 //                .setBundleAssetName("index.android.bundle")
@@ -152,5 +162,6 @@ public class RNRuntimeInstance {
 
     public interface ReactInstanceEventListener{
         void onReactContextInitialized(ReactContext context, ReactRootView reactRootView);
+        void onAttachedToReactInstance(ReactRootView reactRootView);
     }
 }
