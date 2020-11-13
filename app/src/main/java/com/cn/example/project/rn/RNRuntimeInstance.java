@@ -18,7 +18,7 @@ import com.facebook.react.shell.MainReactPackage;
 
 public class RNRuntimeInstance {
 
-
+    private Context mApplicationContext;
     private boolean mIsInit = false;
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
@@ -40,7 +40,9 @@ public class RNRuntimeInstance {
     }
 
     public void init(Activity activity){
+        mApplicationContext = activity.getApplicationContext();
         if(!mIsInit){
+            mIsInit = true;
             mReactRootView = new ReactRootView(activity.getApplicationContext());
 
             mReactInstanceManager = ReactInstanceManager.builder()
@@ -59,7 +61,7 @@ public class RNRuntimeInstance {
                     .addPackage(new MainReactPackage())
                     .addPackage(new ReactNativeSdkPackage())
                     .addPackage(new ReactVideoPackage())
-                    .setUseDeveloperSupport(BuildConfig.DEBUG)
+                    .setUseDeveloperSupport(false)
                     .setInitialLifecycleState(LifecycleState.RESUMED)
                     .setNativeModuleCallExceptionHandler(new NativeModuleCallExceptionHandler() {
                         @Override
@@ -84,10 +86,7 @@ public class RNRuntimeInstance {
     }
 
     private void loadJsBundle(CatalystInstanceImpl instance){
-        ReactContext reactContext = mReactInstanceManager.getCurrentReactContext();
-        if(reactContext != null){
-            JSBundleLoader.createAssetLoader(reactContext, "assets://index.android.bundle", false).loadScript(instance);
-        }
+        JSBundleLoader.createAssetLoader(mApplicationContext, "assets://index.android.bundle", false).loadScript(instance);
     }
 
     public void startReactApplication(){
