@@ -32,6 +32,26 @@
             />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="向js发送事件"
+            android:textAllCaps="false"
+            android:onClick="onClickSendEventToJs"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="直接调用js方法"
+            android:textAllCaps="false"
+            android:onClick="onClickExecJsMethod"
+            />
+
+    </LinearLayout>
     <FrameLayout
         android:id="@+id/layout_react"
         android:layout_width="match_parent"
