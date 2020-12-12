@@ -11,6 +11,13 @@ const MyJsDataModule = {
     console.log("MyJsDataModule updateJsData,  end sleep... ");
   },
 
+  getJsData(){
+    console.log("MyJsDataModule getJsData,  start sleep... ");
+    MyJsDataModule.sleep(2000);
+    console.log("MyJsDataModule getJsData,  end sleep... ");
+    return 'abc-abc'
+  },
+
   sleep(delay) {
     let start = (new Date()).getTime();
     while (((new Date()).getTime() - start) < delay) {

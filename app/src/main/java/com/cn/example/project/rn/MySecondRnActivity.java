@@ -149,6 +149,13 @@ public class MySecondRnActivity extends Activity implements DefaultHardwareBackB
         Log.i("ReactNative", "onClickExecJsMethod end exec....");
     }
 
+
+    public void onClickExecJsMethodHasResult(View view) {
+        Log.i("ReactNative", "onClickExecJsMethodHasResult start exec...."+Thread.currentThread().getName());
+        String result = mReactInstanceManager.getCurrentReactContext().getCatalystInstance().getJSModule(MyJsDataModule.class).getJsData();
+        Log.i("ReactNative", "onClickExecJsMethodHasResult end exec...."+ result);
+    }
+
     @Override
     public void invokeDefaultOnBackPressed() {
         super.onBackPressed();

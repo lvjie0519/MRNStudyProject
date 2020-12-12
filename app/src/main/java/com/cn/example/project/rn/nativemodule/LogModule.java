@@ -44,4 +44,8 @@ public class LogModule extends ReactContextBaseJavaModule {
         Log.e(tag, msg);
     }
 
+    @Override
+    public void initialize() {
+        super.initialize();
+    }
 }

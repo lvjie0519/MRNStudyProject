@@ -6,5 +6,6 @@ import com.facebook.react.bridge.WritableMap;
 public interface MyJsDataModule extends JavaScriptModule {
 
     void updateJsData(String appKey, WritableMap appParameters);
+    String getJsData();
 
 }
