@@ -1,5 +1,6 @@
 /**
  * 自己编写打包脚本
+ * node bin/buildBundle.js index
  **/
 
 //init react native  node_modules/react-native/local-cli/cli.js
