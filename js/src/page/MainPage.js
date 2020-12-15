@@ -4,7 +4,13 @@ import {AppRegistry, StyleSheet, Text, View, Button, TouchableOpacity, Dimension
 import {RNLog} from '../native/android/index'
 import FileTestPage from "./FileTestPage";
 
+import SingleInstance from './SingleInstance'
+
+console.log('load MainPage.js');
+
 export default class MainPage extends React.Component {
+
+    static AA = 'AA';
 
     constructor(props){
         super(props);
@@ -15,6 +21,11 @@ export default class MainPage extends React.Component {
         this.goDialogTestPage = this.goDialogTestPage.bind(this);
         this.goFileTestPage = this.goFileTestPage.bind(this);
         this.goSelfDefineViewTestPage = this.goSelfDefineViewTestPage.bind(this);
+
+        console.log('before update name='+SingleInstance.getInstance().getName(),'AA='+MainPage.AA);
+        SingleInstance.getInstance().setName('jack');
+        MainPage.AA = 'BB';
+        console.log('after update name='+SingleInstance.getInstance().getName(), 'AA='+MainPage.AA);
     }
 
     render() {

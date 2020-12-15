@@ -36,6 +36,11 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="让单例从新加载bundle包"
+            android:onClick="onClickReloadBundle"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="清空单例缓存"
             android:onClick="onClickClearReactCache"/>
     </LinearLayout>

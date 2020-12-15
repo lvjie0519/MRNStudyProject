@@ -59,4 +59,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickClearReactCache(View view) {
         RNRuntimeInstance.getInstance().clearReact();
     }
+
+    public void onClickReloadBundle(View view) {
+        RNRuntimeInstance.getInstance().reLoadJsBundle();
+    }
 }

@@ -99,6 +99,11 @@ public class RNRuntimeInstance {
         JSBundleLoader.createAssetLoader(mApplicationContext, "assets://index.android.bundle", false).loadScript(instance);
     }
 
+    public void reLoadJsBundle(){
+        CatalystInstanceImpl instance = (CatalystInstanceImpl) mReactInstanceManager.getCurrentReactContext().getCatalystInstance();
+        JSBundleLoader.createAssetLoader(mApplicationContext, "assets://index.android.bundle", false).loadScript(instance);
+    }
+
     public void startReactApplication(){
         mReactRootView.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null);
     }
