@@ -1,6 +1,7 @@
 /**
  * 自己编写打包脚本
  * node bin/buildBundle.js index
+ * https://blog.csdn.net/sinat_17775997/article/details/110563714
  **/
 
 //init react native  node_modules/react-native/local-cli/cli.js
@@ -60,9 +61,11 @@ function buildBundle() {
     "--assets-dest", assetOutputPath,
     "--platform", 'android',
     "--dev", "false",
-    "--minify", "true",
+    "--minify", "false",      // 是否进行压缩   最后的bundle文件 大小会发生很大的变化, 看起来主要是去掉换行之类的
+    "--max-workers", 1,
     "--verbose"
   ];
+
   require('react-native/cli').run();
 }
 
