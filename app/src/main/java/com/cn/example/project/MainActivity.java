@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.cn.example.project.rn.MyFirstRnActivity;
+import com.cn.example.project.rn.MyFourthRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
 import com.cn.example.project.rn.MyThirdRnActivity;
 import com.cn.example.project.rn.RNRuntimeInstance;
+import com.cn.example.project.rn.RNRuntimeInstanceFourth;
 import com.cn.example.project.rn.android.TestAndroidMainActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,5 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickReloadBundle(View view) {
         RNRuntimeInstance.getInstance().reLoadJsBundle();
+    }
+
+    public void onClickRnActivityFourth(View view) {
+        MyFourthRnActivity.startActivity(this);
+    }
+
+    public void onClickClearReactCacheFourth(View view) {
+        RNRuntimeInstanceFourth.getInstance().clearReact();
+        RNRuntimeInstanceFourth.getInstance().setShouldLoadJsBundle(false);
     }
 }
