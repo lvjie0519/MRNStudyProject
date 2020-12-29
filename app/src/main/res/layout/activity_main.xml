@@ -27,7 +27,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="进入第三种个RN界面"
+        android:text="进入第三种个RN界面-单例保存运行时环境"
         android:onClick="goThirdRnPage"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,8 +36,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="让单例从新加载bundle包"
+            android:text="异步从新加载bundle包"
             android:onClick="onClickReloadBundle"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同步从新加载bundle包"
+            android:onClick="onClickSyncReloadBundle"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

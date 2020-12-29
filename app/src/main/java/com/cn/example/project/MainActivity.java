@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         RNRuntimeInstance.getInstance().reLoadJsBundle();
     }
 
+    public void onClickSyncReloadBundle(View view) {
+        RNRuntimeInstance.getInstance().syncReLoadJsBundle();
+    }
+
     public void onClickRnActivityFourth(View view) {
         MyFourthRnActivity.startActivity(this);
     }

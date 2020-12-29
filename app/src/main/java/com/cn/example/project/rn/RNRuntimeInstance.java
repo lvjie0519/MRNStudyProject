@@ -100,8 +100,17 @@ public class RNRuntimeInstance {
     }
 
     public void reLoadJsBundle(){
+        long time = System.currentTimeMillis();
         CatalystInstanceImpl instance = (CatalystInstanceImpl) mReactInstanceManager.getCurrentReactContext().getCatalystInstance();
         JSBundleLoader.createAssetLoader(mApplicationContext, "assets://index.android.bundle", false).loadScript(instance);
+        Log.i("lvjie", "time cost "+(System.currentTimeMillis()-time));
+    }
+
+    public void syncReLoadJsBundle(){
+        long time = System.currentTimeMillis();
+        CatalystInstanceImpl instance = (CatalystInstanceImpl) mReactInstanceManager.getCurrentReactContext().getCatalystInstance();
+        JSBundleLoader.createAssetLoader(mApplicationContext, "assets://index.android.bundle", true).loadScript(instance);
+        Log.i("lvjie", "sync time cost "+(System.currentTimeMillis()-time));
     }
 
     public void startReactApplication(){
