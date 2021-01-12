@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import com.cn.example.project.rn.MyBigScreenRnActivity;
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MyFourthRnActivity;
 import com.cn.example.project.rn.MySecondRnActivity;
@@ -77,5 +78,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClickClearReactCacheFourth(View view) {
         RNRuntimeInstanceFourth.getInstance().clearReact();
         RNRuntimeInstanceFourth.getInstance().setShouldLoadJsBundle(false);
+    }
+
+    public void goBigSceenOpenRnActivity(View view) {
+        Intent intent = new Intent(this, MyBigScreenRnActivity.class);
+        startActivity(intent);
     }
 }

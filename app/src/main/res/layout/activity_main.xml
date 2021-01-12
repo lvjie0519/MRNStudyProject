@@ -32,7 +32,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,6 +65,11 @@
             android:text="清空单例缓存"
             android:onClick="onClickClearReactCacheFourth"/>
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大屏打开RN界面"
+        android:onClick="goBigSceenOpenRnActivity"/>
 
 
 </LinearLayout>
