@@ -2,7 +2,9 @@ package com.cn.example.project.rn;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 
 import com.cn.example.project.BuildConfig;
 import com.cn.example.project.rn.fixbug.FixBugMainReactPackage;
@@ -19,8 +21,18 @@ public class MyBigScreenRnActivity extends FragmentActivity implements DefaultHa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initWindowSize();
         initRnView();
+    }
+
+    private void initWindowSize(){
+        //特殊设备，设置宽度
+        WindowManager m = getWindowManager();
+        Display d = m.getDefaultDisplay();  //为获取屏幕宽、高
+        android.view.WindowManager.LayoutParams p = getWindow().getAttributes();  //获取对话框当前的参数值
+        p.height = (int) (d.getHeight() * 0.7);   //高度设置为屏幕的0.7
+        p.width = (int) (d.getWidth() * 0.60);    //宽度设置为屏幕的0.6
+        getWindow().setAttributes(p);     //设置生效
     }
 
     private void initRnView(){

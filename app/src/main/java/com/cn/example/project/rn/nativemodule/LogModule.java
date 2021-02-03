@@ -12,6 +12,7 @@ public class LogModule extends ReactContextBaseJavaModule {
 
     public LogModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        Log.i("lvjie", "LogModule  LogModule()...");
     }
 
     @Override
@@ -47,5 +48,11 @@ public class LogModule extends ReactContextBaseJavaModule {
     @Override
     public void initialize() {
         super.initialize();
+    }
+
+    @Override
+    public void onCatalystInstanceDestroy() {
+        super.onCatalystInstanceDestroy();
+        Log.i("lvjie", "LogModule onCatalystInstanceDestroy...");
     }
 }

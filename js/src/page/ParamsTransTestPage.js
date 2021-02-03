@@ -4,13 +4,16 @@ import {
     Text,
     View,
     Button,
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    Dimensions
 } from 'react-native';
 
 import {RNLog} from '../native/android/index'
 import ParamsTrans from '../sdk/ParamsTrans'
 
 import PageHeader from './widget/PageHeader'
+
+const window = Dimensions.get('window');
 
 export default class ParamsTransTestPage extends React.Component {
 
@@ -41,6 +44,7 @@ export default class ParamsTransTestPage extends React.Component {
     componentDidMount() {
         //注册扫描监听
         DeviceEventEmitter.addListener('eventSendParams', this.getParamsFromEvent);
+        console.log("window", JSON.stringify(window));
     }
 
     getParamsFromEvent(result){
@@ -92,6 +96,7 @@ export default class ParamsTransTestPage extends React.Component {
                 <Text>{"callBackResult is "+this.state.callBackResult}</Text>
                 <Text>{"promiseResult is "+this.state.promiseResult}</Text>
                 <Text>{"eventResult is "+this.state.eventResult}</Text>
+                <Text>{"window info is "+JSON.stringify(window)}</Text>
 
             </View>
         );

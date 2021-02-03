@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TranslucentActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <style name="DialogStyle">
         <!--是否去除边框-->
         <item name="android:windowFrame">@null</item>
