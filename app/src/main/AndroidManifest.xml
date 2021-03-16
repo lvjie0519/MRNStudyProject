@@ -23,7 +23,12 @@
         <activity
             android:name=".rn.MyBigScreenRnActivity"
             android:theme="@style/TranslucentActivityTheme"
-            ></activity>
+            />
+        <activity
+            android:name=".rn.MyBigScreen2RnActivity"
+            android:theme="@style/TranslucentActivityTheme"
+            android:configChanges="keyboardHidden|keyboard|orientation|screenLayout|screenSize|smallestScreenSize"
+            />
         <activity android:name=".rn.MyFourthRnActivity" />
         <activity android:name=".rn.MyThirdRnActivity" />
         <activity android:name=".MainActivity">

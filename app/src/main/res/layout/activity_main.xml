@@ -68,8 +68,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="大屏打开RN界面"
+        android:text="大屏打开RN界面1"
         android:onClick="goBigSceenOpenRnActivity"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="大屏打开RN界面2"
+        android:onClick="goBigSceenOpenRnActivity2"/>
 
 </LinearLayout>

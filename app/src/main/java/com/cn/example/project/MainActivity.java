@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import com.cn.example.project.rn.MyBigScreen2RnActivity;
 import com.cn.example.project.rn.MyBigScreenRnActivity;
 import com.cn.example.project.rn.MyFirstRnActivity;
 import com.cn.example.project.rn.MyFourthRnActivity;
@@ -82,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goBigSceenOpenRnActivity(View view) {
         Intent intent = new Intent(this, MyBigScreenRnActivity.class);
+        startActivity(intent);
+    }
+
+    public void goBigSceenOpenRnActivity2(View view) {
+        Intent intent = new Intent(this, MyBigScreen2RnActivity.class);
         startActivity(intent);
     }
 }
